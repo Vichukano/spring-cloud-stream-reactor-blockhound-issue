@@ -16,6 +16,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.test.rule.EmbeddedKafkaRule;
 import org.springframework.kafka.test.utils.KafkaTestUtils;
 import org.springframework.test.context.junit4.SpringRunner;
+import reactor.blockhound.BlockHound;
 
 import java.util.Collections;
 import java.util.Map;
@@ -33,6 +34,7 @@ public class DemoAppTest {
 
     @BeforeClass
     public static void setup() {
+        BlockHound.install();
         System.setProperty("spring.cloud.stream.kafka.binder.brokers", embeddedKafka.getEmbeddedKafka().getBrokersAsString());
     }
 
