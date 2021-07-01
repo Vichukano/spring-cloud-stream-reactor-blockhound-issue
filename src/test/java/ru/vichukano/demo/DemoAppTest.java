@@ -57,7 +57,7 @@ public class DemoAppTest {
         Consumer<String, String> consumer = cf.createConsumer();
         consumer.subscribe(Collections.singleton(OUTPUT_TOPIC));
         consumer.commitSync();
-        ConsumerRecord<String, String> record = KafkaTestUtils.getSingleRecord(consumer, OUTPUT_TOPIC);
+        ConsumerRecord<String, String> record = KafkaTestUtils.getSingleRecord(consumer, OUTPUT_TOPIC, 5000);
 
         assertEquals("FOOBAR", record.value());
     }

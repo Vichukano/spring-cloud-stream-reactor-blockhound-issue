@@ -1,0 +1,13 @@
+server.port: 8080
+spring:
+  cloud:
+    stream:
+      kafka.binder.brokers:
+      bindings:
+        process-out-0:
+          destination: output
+        process-in-0:
+          destination: input
+          group: test-group
+      function:
+        definition: process
